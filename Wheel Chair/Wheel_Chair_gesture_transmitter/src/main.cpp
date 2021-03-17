@@ -9,7 +9,7 @@
 #endif
 
 // const
-#define EMERGENCY_STRING "EMGNCY"
+#define EMERGENCY_STRING "EMERGENCY"
 
 // Pin Conf
 #define radioTransmitterPin 12
@@ -36,7 +36,7 @@ SendData sendData;
 #define MIN_AX -17000
 #define MAX_AY 17000
 #define MIN_AY -17000
-#define DEBUG_DELAY 500
+#define DEBUG_DELAY 100
 
 // Variables
 int16_t accX, accY, accZ;
@@ -72,7 +72,6 @@ void setup()
   // pinmode
   pinMode(emergencyBtnPin, INPUT_PULLUP);
 
-
 }
 
 void loop()
@@ -95,7 +94,7 @@ void loop()
     checkEmergencyBtn();
 
     // calculate
-    commandString = "x="+ String(sendData.x) + ";y="+ String(sendData.y)+ ";";
+    commandString = "x="+ String(sendData.x) + ";y="+ String(sendData.y)+ ";     ";
     Serial.println(commandString);
     transmitData(commandString);
   }
@@ -112,7 +111,7 @@ void transmitData (String data){
 void checkEmergencyBtn(){
   bool state = digitalRead(emergencyBtnPin);
   if(state == 0){
-    Serial.print("EMERGENCY");
+    Serial.println(EMERGENCY_STRING);
     transmitData(EMERGENCY_STRING);
     delay(200);
   }
