@@ -1,0 +1,5 @@
+#define WIFI_SSID "RakibHasan"
+#define WIFI_PASSWORD "Rakib007"
+#define SECRET_KEY "1a%3123=/24"
+#define SERVER "http://smsservice.pocketclassroom.net/sendValidationSMS"
+#define MSG_JSON_STRING "{\"receiver\":\"01303220013\",\"text\":\"EMERGENCY!!! From location (24.3637182,88.6288179). Visit: https://www.google.com/maps/@24.3637182,88.6288179,21z for details.\",\"xy_auth_key\":\"1a%3123=/24\"}"
